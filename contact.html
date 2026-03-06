@@ -134,10 +134,11 @@
                         <label>Message</label>
                         <textarea rows="5" placeholder="How can we help you today?" required></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">
+                    <a href="errorPage.html">
+                    <button  class="submit-btn">
                         <span>Send Message</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
+                        <i class="fas fa-paper-plane"></i></a>
+                    </button></a>
                 </form>
             </div>
 
@@ -183,11 +184,12 @@
         <div class="footer-col">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Shop All</a></li>
-                <li><a href="errorPage.html">Organic Fruits</a></li>
-                <li><a href="errorPage.html">Fresh Vegetables</a></li>
-                <li><a href="errorPage.html">Offers & Deals</a></li>
+            <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                 
             </ul>
         </div>
 
@@ -380,22 +382,9 @@ document.querySelectorAll('.nav-link').forEach(link => {
         const btn = form.querySelector('.submit-btn');
         const originalContent = btn.innerHTML;
 
-        btn.disabled = true;
-        btn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
-        btn.style.opacity = '0.7';
+                 window.location.href = "errorPage.html";
 
-        setTimeout(() => {
-            btn.style.backgroundColor = '#059669';
-            btn.innerHTML = '<span>Message Sent!</span> <i class="fas fa-check"></i>';
-            form.reset();
-            
-            setTimeout(() => {
-                btn.disabled = false;
-                btn.innerHTML = originalContent;
-                btn.style.backgroundColor = '';
-                btn.style.opacity = '';
-            }, 3000);
-        }, 1500);
+      
     }
     const iframe = document.querySelector(".map-wrapper iframe");
 const placeholder = document.querySelector(".map-placeholder");

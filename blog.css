@@ -310,7 +310,11 @@
 
 /* ================= MAIN LAYOUT (CONTENT + SIDEBAR) ================= */
 .main-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; padding-top: 60px; }
-
+.featured-content a{
+    color: var(--accent);
+    margin-top: 10px;
+    font-weight: 800;
+}
 .featured-card {
     background: var(--white); border-radius: 25px; overflow: hidden;
     box-shadow: var(--shadow); transition: var(--transition);
