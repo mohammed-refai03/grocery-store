@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Stackly Grocery Store</title>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+       <header class="main-header">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <img src="assets/logo.webp" alt="Stackly Logo" />
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" id="current-home">
+              Home
+              <i
+                class="fas fa-chevron-down"
+                style="font-size: 10px; margin-left: 5px"
+              ></i>
+            </a>
+            <ul class="dropdown-menu" id="home-dropdown">
+              <li><a href="index.html">Home 1</a></li>
+              <li><a href="home2.html">Home 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="products.html" class="nav-link">Products</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="services.html" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="blog.html" class="nav-link">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="login.html" class="nav-link btn-login">Login</a>
+          </li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+      
+
+    <section class="contact-hero">
+        <div class="container">
+            <h1 class="reveal-up">Get in <span>Touch</span></h1>
+            <p class="reveal-up delay-1">Have a question about an order or our delivery area? We're here to help.</p>
+        </div>
+    </section>
+
+    <section class="contact-wrapper container">
+        <div class="contact-grid">
+            
+            <div class="contact-info reveal-left">
+                <div class="info-card">
+                    <div class="icon-circle"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>+1 (555) 123-4567</p>
+                        <span>Mon-Sun: 7am - 11pm</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <h4>Email Support</h4>
+                        <p>hello@freshmart.com</p>
+                        <span>24/7 Response Time</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-circle"><i class="fas fa-location-dot"></i></div>
+                    <div>
+                        <h4>Main Store</h4>
+                        <p>123 Grocery Lane, Fresh Valley</p>
+                        <span>Central Distribution Hub</span>
+                    </div>
+                </div>
+
+                <div class="social-box">
+                    <h4>Follow Our Freshness</h4>
+                    <div class="social-links">
+                        <a href="errorPage.html"><i class="fab fa-facebook-f"></i></a>
+                        <a href="errorPage.html"><i class="fab fa-instagram"></i></a>
+                        <a href="errorPage.html"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-card reveal-right">
+                <form id="groceryContactForm" novalidate>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <select>
+                            <option>Order Status</option>
+                            <option>Delivery Issue</option>
+                            <option>Product Feedback</option>
+                            <option>Business Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="How can we help you today?" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+   <section class="map-section reveal-up">
+  <div class="container">
+
+    <div class="map-wrapper">
+
+      <iframe
+        src="https://www.google.com/maps?q=MMR+Complex,+Chinna+Thirupathi,+near+Chinna+Muniyappan+Kovil,+Salem,+Tamil+Nadu+636008&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <div class="map-placeholder">
+        <i class="fas fa-map-marked-alt"></i>
+        <p>Interactive Map Loading...</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+   
+
+  <footer class="main-footer">
+    <div class="container footer-grid">
+        <div class="footer-col">
+    <a href="index.html" class="footer-logo">
+        <img src="assets/logo.webp" alt="FreshCart Logo">
+    </a>
+    <p class="footer-desc">Bringing nature's best directly to your kitchen. We prioritize local farmers and sustainable practices.</p>
+    <div class="social-links">
+        <a href="errorPage.html"><i class="fab fa-facebook-f"></i></a>
+        <a href="errorPage.html"><i class="fab fa-instagram"></i></a>
+        <a href="errorPage.html"><i class="fab fa-twitter"></i></a>
+        <a href="errorPage.html"><i class="fab fa-pinterest"></i></a>
+    </div>
+</div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Shop All</a></li>
+                <li><a href="errorPage.html">Organic Fruits</a></li>
+                <li><a href="errorPage.html">Fresh Vegetables</a></li>
+                <li><a href="errorPage.html">Offers & Deals</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="errorPage.html">Track Order</a></li>
+                <li><a href="errorPage.html">Shipping Policy</a></li>
+                <li><a href="errorPage.html">Returns & Refunds</a></li>
+                <li><a href="errorPage.html">FAQ</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Contact Us</h3>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>123 Green Valley Lane, Nature City, NC 56789</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <p>+1 (555) 123-4567</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p>hello@freshcart.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container bottom-flex">
+            <p>&copy; 2024 FreshCart Organic. All Rights Reserved.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-apple-pay"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+   
+   <script>
+                 
+      const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+// Toggle Hamburger
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('toggle');
+});
+
+// Handle Mobile Dropdown Click
+const homeItem = document.querySelector('.nav-item.dropdown');
+homeItem.addEventListener('click', function(e) {
+    if (window.innerWidth <= 992) {
+        // Only toggle sub-menu on mobile
+        this.classList.toggle('active');
+        // Prevent immediate navigation if the 'Home' link itself is clicked
+        if(e.target.id === 'current-home') {
+            e.preventDefault();
+        }
+    }
+});
+
+// Close menu on link click (if it's not a dropdown toggle)
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (!link.parentElement.classList.contains('dropdown')) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('toggle');
+        }
+    });
+});  // Change this variable to 'home1' or 'home2' depending on which page this is.
+
+   // Change this variable to 'home1' or 'home2' depending on which page this is.
+
+  document.querySelectorAll('.faq-question').forEach(item => {
+    item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        
+        // Close other open items (Optional)
+        document.querySelectorAll('.faq-item').forEach(child => {
+            if (child !== parent) {
+                child.classList.remove('active');
+            }
+        });
+
+        // Toggle current item
+        parent.classList.toggle('active');
+    });
+});
+       
+   const form = document.getElementById('groceryContactForm');
+    
+    // 1. Scroll Reveal Logic (Stay Visible)
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+    // 2. Real-time Error Clearing (Removes error as you type)
+    const allInputs = form.querySelectorAll('input, textarea, select');
+    allInputs.forEach(input => {
+        input.addEventListener('input', () => {
+            const container = input.parentElement;
+            if (container.classList.contains('error')) {
+                container.classList.remove('error');
+                removeErrorText(container);
+            }
+        });
+    });
+
+    // 3. Form Validation Logic
+    form.addEventListener('submit', (e) => {
+        e.preventDefault(); 
+        if (validateForm()) {
+            handleSuccess();
+        }
+    });
+
+    function validateForm() {
+        let isValid = true;
+        const inputs = form.querySelectorAll('input[required], textarea[required]');
+
+        inputs.forEach(input => {
+            const container = input.parentElement;
+            container.classList.remove('error');
+            removeErrorText(container);
+
+            const value = input.value.trim();
+
+            // Check if empty
+            if (!value) {
+                showError(container, 'This field is required');
+                isValid = false;
+            } 
+            
+            // --- NEW: Name Section Validation (No numbers or symbols) ---
+            else if (input.type === 'text' && input.placeholder === 'John Doe') {
+                // Regex: Allows letters (A-Z, a-z) and spaces only
+                const namePattern = /^[A-Za-z\s]+$/;
+                
+                if (value.length < 2) {
+                    showError(container, 'Name must be at least 2 characters');
+                    isValid = false;
+                } else if (!namePattern.test(value)) {
+                    showError(container, 'Numbers and symbols are not allowed in names');
+                    isValid = false;
+                }
+            }
+
+            // Email specific check
+            else if (input.type === 'email' && !isValidEmail(value)) {
+                showError(container, 'Please enter a valid email address');
+                isValid = false;
+            }
+        });
+
+        return isValid;
+    }
+
+    function showError(container, message) {
+        container.classList.add('error');
+        const errorDiv = document.createElement('span');
+        errorDiv.className = 'error-message';
+        errorDiv.innerText = message;
+        container.appendChild(errorDiv);
+    }
+
+    function removeErrorText(container) {
+        const existingError = container.querySelector('.error-message');
+        if (existingError) existingError.remove();
+    }
+
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function handleSuccess() {
+        const btn = form.querySelector('.submit-btn');
+        const originalContent = btn.innerHTML;
+
+        btn.disabled = true;
+        btn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+        btn.style.opacity = '0.7';
+
+        setTimeout(() => {
+            btn.style.backgroundColor = '#059669';
+            btn.innerHTML = '<span>Message Sent!</span> <i class="fas fa-check"></i>';
+            form.reset();
+            
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+                btn.style.backgroundColor = '';
+                btn.style.opacity = '';
+            }, 3000);
+        }, 1500);
+    }
+    const iframe = document.querySelector(".map-wrapper iframe");
+const placeholder = document.querySelector(".map-placeholder");
+
+iframe.onload = () => {
+  placeholder.style.display = "none";
+};
+
+   </script>
+</body>
+</html>

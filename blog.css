@@ -1,0 +1,688 @@
+/* ================= GLOBAL & THEME VARIABLES ================= */
+:root {
+    --primary: #2d5a27;      /* Deep Forest Green */
+    --accent: #8bc34a;       /* Fresh Leaf Green */
+    --secondary: #f4f7f2;    /* Soft Sage Gray */
+    --text: #1a1a1a;
+    --text-light: #666666;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.section-padding { padding: 80px 0; }
+.bg-gray { background-color: var(--secondary); }
+
+/* ================= REVISED NAVBAR ================= */
+ 
+
+/* --- NAVBAR --- */
+ :root {
+    --primary: #2D5A27;
+    --accent: #A7C957;
+    --bg-mild: #FDFCF8;
+    --text: #1A1C19;
+    --white: #ffffff;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+ * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; max-width: 100%; }
+        body { background: var(--mild-bg); color: var(--text); overflow-x: hidden; width: 100%; }
+       html, body {
+    overflow-x: hidden;
+    width: 100%;
+} 
+        /* Global Container Fix */
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+.main-header {
+    background: rgba(253, 252, 248, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); /* Safari Support */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.navbar {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    padding: 0 2rem;
+}
+
+/* ================================================================
+   3. LOGO (Updated: Image Support)
+   ================================================================ */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+}
+
+.logo img {
+    height: 55px; /* Adjust this to match your logo's aspect ratio */
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+/* ================================================================
+   4. NAVIGATION MENU
+   ================================================================ */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-item {
+    position: relative;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+/* ================================================================
+   5. DROPDOWN LOGIC (Updated: Home 1 & Home 2)
+   ================================================================ */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 160px;
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+    list-style: none;
+    z-index: 1100;
+}
+
+/* Show Dropdown on Hover (Desktop) */
+@media (min-width: 993px) {
+    .nav-item:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(10px);
+    }
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background: #f4f6f1;
+    color: var(--primary);
+    padding-left: 25px; /* Slide effect */
+}
+
+/* ================================================================
+   6. LOGIN BUTTON
+   ================================================================ */
+.btn-login {
+    background: var(--primary);
+    color: white !important;
+    padding: 12px 28px;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(45, 90, 39, 0.2);
+    font-weight: 600;
+}
+
+.btn-login:hover {
+    background: var(--accent);
+    color: var(--primary) !important;
+    transform: translateY(-2px);
+}
+
+/* ================================================================
+   7. HAMBURGER & MOBILE MENU (Updated: Responsive Design)
+   ================================================================ */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--text);
+    margin: 6px;
+    transition: 0.4s;
+}
+
+
+@media (max-width: 992px) {
+    .navbar {
+        height: 80px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 75%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center; /* Aligned left for easier reading */
+        padding: 100px 40px;
+        gap: 1.5rem;
+        transition: 0.5s ease-in-out;
+        
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    /* Mobile Dropdown Tweak */
+    .nav-item.dropdown.active .dropdown-menu {
+        position: static;
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: #f9f9f9;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        display: none; /* Hidden until parent is clicked on mobile */
+    }
+
+    /* Hamburger to X Animation */
+    .hamburger.toggle .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .hamburger.toggle .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.toggle .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+   }
+
+/* Extra small devices */
+@media (max-width: 480px) {
+
+    .nav-menu {
+        width: 100%;
+    }
+    .logo img {
+        height: 45px;
+    }
+      }
+  
+/* ================= BLOG HERO ================= */
+.hero-section {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    background: url(assets/blog-hero.webp) center/cover;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(45,90,39,0.8));
+}
+
+.hero-content { position: relative; z-index: 2; }
+.editorial-label { 
+    text-transform: uppercase; letter-spacing: 3px; font-weight: 700; 
+    font-size: 0.9rem; color: var(--accent); 
+}
+.hero-section h1 { font-size: 3.5rem; font-weight: 800; margin: 15px 0; }
+.hero-section p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+
+/* ================= CATEGORY BAR ================= */
+.category-bar { padding: 30px 0; border-bottom: 1px solid #eee; background: #fff; }
+.category-flex { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.cat-chip {
+    padding: 10px 20px; border-radius: 50px; border: 1px solid #eee;
+    background: white; cursor: pointer; font-weight: 600; transition: var(--transition);
+}
+.cat-chip.active, .cat-chip:hover {
+    background: var(--primary); color: white; border-color: var(--primary);
+}
+
+/* ================= RECIPE VISUAL GRID ================= */
+.header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+.recipe-visual-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+.recipe-box {
+    position: relative; border-radius: 20px; overflow: hidden; height: 400px;
+}
+.recipe-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.recipe-overlay {
+    position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white;
+}
+.tag { background: var(--accent); padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; }
+.recipe-box:hover img { transform: scale(1.05); }
+
+/* ================= MAIN LAYOUT (CONTENT + SIDEBAR) ================= */
+.main-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; padding-top: 60px; }
+
+.featured-card {
+    background: var(--white); border-radius: 25px; overflow: hidden;
+    box-shadow: var(--shadow); transition: var(--transition);
+}
+.img-reveal { height: 450px; overflow: hidden; }
+.img-reveal img { width: 100%; height: 100%; object-fit: cover; }
+.featured-content { padding: 40px; }
+.date { color: var(--accent); font-weight: 700; font-size: 0.9rem; }
+.btn-read {
+    margin-top: 20px; background: none; border: none; color: var(--primary);
+    font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 10px;
+}
+
+/* SIDEBAR */
+.sidebar-sticky { position: sticky; top: 100px; }
+.trending-item { display: flex; gap: 15px; margin-bottom: 25px; align-items: center; }
+.trending-item img { width: 80px; height: 80px; border-radius: 15px; object-fit: cover; }
+.trending-item h5 { margin-bottom: 5px; font-size: 1rem; }
+.trending-item span { font-size: 0.8rem; color: var(--text-light); }
+
+/* ================= RECENT ARTICLES GRID ================= */
+.recent-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+.blog-grid { 
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+    gap: 30px; margin-top: 40px; 
+}
+.blog-card {
+    background: white; border-radius: 20px; overflow: hidden;
+    box-shadow: var(--shadow); border: 1px solid #f0f0f0;
+}
+.card-img img { width: 100%; height: 230px; object-fit: cover; }
+.card-body { padding: 25px; }
+.read-link { color: var(--primary); text-decoration: none; font-weight: 700; display: block; margin-top: 15px; }
+
+/* --- BLOG CARD STYLING --- */
+.blog-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Professional "snappy" transition */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+:root {
+    --footer-bg: #1A1C19;
+    --footer-text: #b2bec3;
+    --footer-heading: #ffffff;
+    --accent: #8bc34a; /* Leaf Green */
+    --transition: all 0.3s ease;
+}
+.main-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 80px 0 0 0; /* Top padding 80px, others 0 */
+    margin-top: 100px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to 1 column for mobile */
+    gap: 40px;
+    padding-bottom: 60px;
+}
+
+/* --- LOGO & DESCRIPTION --- */
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 55px; /* Fixed height for consistency */
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-col p {
+    line-height: 1.8;
+    font-size: 0.95rem;
+    color: #95a5a6;
+    max-width: 320px;
+}
+
+/* --- HEADINGS --- */
+.footer-col h3 {
+    color: var(--footer-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+/* Subtle underline for headings */
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: var(--accent);
+}
+
+/* --- LIST LINKS --- */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: var(--footer-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent);
+    transform: translateX(5px); /* Smooth slide effect */
+}
+
+/* --- CONTACT ITEMS --- */
+.contact-item {
+    display: flex;
+
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.contact-item i {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-top: 4px;
+}
+
+.contact-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--footer-text);
+}
+
+/* --- SOCIAL LINKS --- */
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: var(--accent);
+    transform: translateY(-5px);
+    color: #1A1C19;
+}
+
+/* --- FOOTER BOTTOM --- */
+.footer-bottom {
+    background: #141613; /* Slightly darker than main footer */
+    padding: 25px 25px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bottom-flex {
+    display: flex;
+    flex-direction: column; /* Stacked for mobile */
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #636e72;
+    margin: 0;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 15px;
+    font-size: 1.6rem;
+    color: #555;
+}
+
+.payment-methods i:hover {
+    color: var(--footer-text);
+}
+
+/* ================================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================================ */
+
+/* Tablets (Large Mobile to iPad) */
+@media (min-width: 600px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 40px;
+    }
+}
+
+/* Desktop (Laptops and up) */
+@media (min-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1.5fr; /* Restores the original 4-column layout */
+        gap: 60px;
+        padding: 0 20px;
+    }
+
+    .bottom-flex {
+        flex-direction: row; /* Horizontal on desktop */
+        text-align: left;
+    }
+    
+    .footer-col h3::after {
+        left: 0; /* Keep underline left-aligned */
+    }
+}
+
+/* Specific fix for Centering on small mobile */
+@media (max-width: 599px) {
+    .footer-col {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        
+        align-items: center;
+    }
+    .footer-col h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .contact-item {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+
+/* --- IMAGE HOVER (ZOOM) --- */
+.card-img {
+    width: 100%;
+    height: 230px;
+    overflow: hidden; /* Important: keeps the zoom inside the box */
+    position: relative;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- TEXT & BODY STYLING --- */
+.card-body {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body .date {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.card-body h4 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.card-body p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* --- INTERACTIVE LINK HOVER --- */
+.read-link {
+    margin-top: auto; /* Pushes link to the bottom */
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.read-link::after {
+    content: '\f061'; /* FontAwesome Right Arrow */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+/* --- COMBINED HOVER STATES --- */
+.blog-card:hover {
+    transform: translateY(-12px); /* Card Lifts Up */
+    box-shadow: 0 20px 40px rgba(45, 90, 39, 0.12); /* Branded Glow Shadow */
+    border-color: var(--accent);
+}
+
+.blog-card:hover .card-img img {
+    transform: scale(1.1); /* Image Zooms In */
+}
+
+.blog-card:hover h4 {
+    color: var(--accent); /* Title Changes Color */
+}
+
+.blog-card:hover .read-link {
+    color: var(--accent);
+    gap: 12px; /* Arrow moves away */
+}
+
+.blog-card:hover .read-link::after {
+    transform: translateX(5px);
+}
+/* ================= REVISED FOOTER ================= */
+.social-icons a { color: white; margin-right: 15px; font-size: 1.2rem; transition: 0.3s; }
+.social-icons a:hover { color: var(--accent); }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .main-layout, .recipe-visual-grid { grid-template-columns: 1fr; }
+    .hero-section h1 { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+     /* Hide menu for mobile */
+    .blog-grid { grid-template-columns: 1fr; }
+        .recipe-visual-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recipe-box { height: 300px; }
+   
+}

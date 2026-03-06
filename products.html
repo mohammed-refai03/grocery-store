@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Stackly Grocery Store</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="products.css">
+</head>
+<body>
+
+<header class="main-header">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <img src="assets/logo.webp" alt="FreshStore Logo" />
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" id="current-home">
+              Home
+              <i
+                class="fas fa-chevron-down"
+                style="font-size: 10px; margin-left: 5px"
+              ></i>
+            </a>
+            <ul class="dropdown-menu" id="home-dropdown">
+              <li><a href="index.html">Home 1</a></li>
+              <li><a href="home2.html">Home 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="products.html" class="nav-link">Products</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="services.html" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="blog.html" class="nav-link">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="login.html" class="nav-link btn-login">Login</a>
+          </li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+<div class="action-bar">
+    <div class="search-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="mainSearch" placeholder="Search for fresh groceries...">
+    </div>
+    <div class="sort-wrapper">
+        <select id="sortSelect" class="sort-select">
+            <option value="">Sort By: Default</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+        </select>
+    </div>
+</div>
+
+<div class="container">
+    <aside class="sidebar">
+        <button id="clearFilters" class="clear-btn"><i class="fas fa-sync-alt"></i> Clear Filters</button>
+
+        <h3>Categories</h3>
+        <div class="category-section">
+            <label><input type="checkbox" value="Vegetables" class="category"> Vegetables</label>
+        <label><input type="checkbox" value="Fruits" class="category"> Fruits</label>
+        <label><input type="checkbox" value="Dairy" class="category"> Dairy</label>
+        </div>
+
+        <h3>Max Price</h3>
+        <input type="range" id="priceRange" min="0" max="20" value="20" style="width: 100%; accent-color: var(--primary);">
+        <p style=" font-weight: 700;">Up to $<span id="priceValue">20</span></p>
+    </aside>
+
+    <main class="products">
+        <div class="product-grid" id="productGrid">
+            <div class="product-card" data-name="Orange" data-price="4.00" data-category="Vegetables">
+                <div class="product-img">
+                    <img src="assets/orange.webp" alt="Orange">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">fruits</span>
+                    <h3>Orange</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <div class="product-price">
+                        <span class="price">$4.00</span>
+                        <span class="old-price">$6.00</span>
+                    </div>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-name="Carrot" data-price="4.00" data-category="Vegetables">
+                <div class="product-img">
+                    <img src="assets/carrot.webp" alt="Carrot">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Vegetables</span>
+                    <h3>Carrot</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <div class="product-price">
+                        <span class="price">$4.00</span>
+                        <span class="old-price">$6.00</span>
+                    </div>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-name="Banana" data-price="4.00" data-category="Fruits">
+                <div class="product-img">
+                    <img src="assets/banana.webp" alt="Banana">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Fruits</span>
+                    <h3>Banana</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <div class="product-price">
+                        <span class="price">$4.00</span>
+                        <span class="old-price">$6.00</span>
+                    </div>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-name="Broccoli" data-price="4.00" data-category="Vegetables">
+                <div class="product-img">
+                    <img src="assets/broccoli.webp" alt="Broccoli">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Vegetables</span>
+                    <h3>Broccoli</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <div class="product-price">
+                        <span class="price">$4.00</span>
+                        <span class="old-price">$6.00</span>
+                    </div>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-name="Potato" data-price="4.00" data-category="Vegetables">
+                <div class="product-img">
+                    <img src="assets/potato.webp" alt="potato">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Vegetables</span>
+                    <h3>Potato</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <div class="product-price">
+                        <span class="price">$4.00</span>
+                        <span class="old-price">$6.00</span>
+                    </div>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-name="Strawberries" data-price="4.00" data-category="Fruits">
+                <div class="product-img">
+                    <img src="assets/strawberries.webp" alt="Strawberries">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Fruits</span>
+                    <h3>Strawberries</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <div class="product-price">
+                        <span class="price">$4.00</span>
+                        <span class="old-price">$6.00</span>
+                    </div>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-name="Tofu" data-price="4.00" data-category="Dairy">
+                <div class="product-img">
+                    <img src="assets/tofu.webp" alt="Tofu">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Dairy</span>
+                    <h3>Tofu</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <div class="product-price">
+                        <span class="price">$4.00</span>
+                        <span class="old-price">$6.00</span>
+                    </div>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-name="Avacodo" data-price="4.00" data-category="Vegetables">
+                <div class="product-img">
+                    <img src="assets/avocado.webp" alt="Avacodo">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Vegetables</span>
+                    <h3>Avacodo</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <div class="product-price">
+                        <span class="price">$4.00</span>
+                        <span class="old-price">$6.00</span>
+                    </div>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-name="Organic Red Tomato" data-price="4.00" data-category="Vegetables">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=400" alt="Tomato">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Vegetables</span>
+                    <h3>Organic Red Tomato</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <div class="product-price">
+                        <span class="price">$4.00</span>
+                        <span class="old-price">$6.00</span>
+                    </div>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            
+
+           
+        </div>
+    </main>
+</div>
+
+<footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="footer-logo">
+            <img src="assets/logo.webp" alt="FreshCart Logo" />
+          </a>
+          <p class="footer-desc">
+            Bringing nature's best directly to your kitchen. We prioritize local
+            farmers and sustainable practices.
+          </p>
+          <div class="social-links">
+            <a href="errorPage.html"><i class="fab fa-facebook-f"></i></a>
+            <a href="errorPage.html"><i class="fab fa-instagram"></i></a>
+            <a href="errorPage.html"><i class="fab fa-twitter"></i></a>
+            <a href="errorPage.html"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Shop All</a></li>
+            <li><a href="errorPage.html">Organic Fruits</a></li>
+            <li><a href="errorPage.html">Fresh Vegetables</a></li>
+            <li><a href="errorPage.html">Offers & Deals</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="errorPage.html">Track Order</a></li>
+            <li><a href="errorPage.html">Shipping Policy</a></li>
+            <li><a href="errorPage.html">Returns & Refunds</a></li>
+            <li><a href="errorPage.html">FAQ</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us</h3>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>123 Green Valley Lane, Nature City, NC 56789</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <p>+1 (555) 123-4567</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <p>hello@freshcart.com</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container bottom-flex">
+          <p>&copy; 2024 FreshCart Organic. All Rights Reserved.</p>
+          <div class="payment-methods">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <i class="fab fa-apple-pay"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<script>
+
+// ---------------- NAVBAR ----------------
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click',()=>{
+navMenu.classList.toggle('active');
+hamburger.classList.toggle('toggle');
+});
+
+const homeItem = document.querySelector('.nav-item.dropdown');
+
+homeItem.addEventListener('click',function(e){
+
+if(window.innerWidth <= 992){
+
+this.classList.toggle('active');
+
+if(e.target.id === 'current-home'){
+e.preventDefault();
+}
+
+}
+
+});
+
+document.querySelectorAll('.nav-link').forEach(link=>{
+
+link.addEventListener('click',()=>{
+
+if(!link.parentElement.classList.contains('dropdown')){
+navMenu.classList.remove('active');
+hamburger.classList.remove('toggle');
+}
+
+});
+
+});
+
+
+
+
+// ---------------- FILTER VARIABLES ----------------
+const searchInput = document.getElementById("mainSearch");
+const priceSlider = document.getElementById("priceRange");
+const priceDisplay = document.getElementById("priceValue");
+const categoryCheckbox = document.querySelectorAll(".category");
+const sortSelect = document.getElementById("sortSelect");
+const clearBtn = document.getElementById("clearFilters");
+
+const productGrid = document.getElementById("productGrid");
+let cards = Array.from(document.querySelectorAll(".product-card"));
+
+
+// ---------------- FILTER FUNCTION ----------------
+function filterProducts() {
+
+    const query = searchInput.value.toLowerCase();
+    const maxPrice = parseFloat(priceSlider.value);
+    const selectedCategories = Array.from(categoryCheckbox)
+        .filter(c => c.checked)
+        .map(c => c.value);
+
+    priceDisplay.innerText = maxPrice;
+
+    cards.forEach(card => {
+
+        const name = card.dataset.name.toLowerCase();
+        const price = parseFloat(card.dataset.price);
+        const category = card.dataset.category;
+
+        const matchSearch = name.includes(query);
+        const matchPrice = price <= maxPrice;
+        const matchCategory = selectedCategories.length === 0 || selectedCategories.includes(category);
+
+        if (matchSearch && matchPrice && matchCategory) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+}
+
+
+// ---------------- SORT FUNCTION ----------------
+function sortProducts() {
+
+    const sortValue = sortSelect.value;
+
+    let sorted = [...cards];
+
+    if (sortValue === "low") {
+        sorted.sort((a,b) => a.dataset.price - b.dataset.price);
+    }
+
+    if (sortValue === "high") {
+        sorted.sort((a,b) => b.dataset.price - a.dataset.price);
+    }
+
+    productGrid.innerHTML = "";
+    sorted.forEach(card => productGrid.appendChild(card));
+
+}
+
+
+// ---------------- CLEAR FILTERS ----------------
+clearBtn.addEventListener("click", () => {
+
+    searchInput.value = "";
+    priceSlider.value = 20;
+    priceDisplay.innerText = 20;
+    sortSelect.value = "";
+
+    categoryCheckbox.forEach(c => c.checked = false);
+
+    filterProducts();
+
+});
+
+
+// ---------------- EVENT LISTENERS ----------------
+searchInput.addEventListener("input", filterProducts);
+priceSlider.addEventListener("input", filterProducts);
+categoryCheckbox.forEach(c => c.addEventListener("change", filterProducts));
+sortSelect.addEventListener("change", sortProducts);
+
+</script>
+
+</body>
+</html>
