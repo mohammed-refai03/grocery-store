@@ -372,6 +372,19 @@
 .product-card:hover .product-img img {
     transform: scale(1.1);
 }
+@media (min-width: 992px) {
+ 
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+}
+@media (max-width: 992px) {
+ 
+    .product-grid { display: grid; grid-template-columns: repeat(2, minmax(280px, 1fr)); gap: 2.5rem; }
+}
+
+@media (max-width: 576px) {
+    .product-grid { display: grid; grid-template-columns: repeat(1, minmax(280px, 1fr)); gap: 2.5rem; }
+}
+
         /* --- Countdown Items --- */
 .deal-countdown {
     display: flex;
@@ -741,5 +754,7 @@
         text-align: center;
         flex-direction: column;
         gap: 5px;
+        
     }
+    
 }

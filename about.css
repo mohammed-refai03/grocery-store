@@ -642,12 +642,14 @@ body {
 }
 
 /* --- MAIN FOOTER --- */
+
+/* --- MAIN FOOTER --- */
 .main-footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
     padding: 80px 0 0 0; /* Top padding 80px, others 0 */
     margin-top: 100px;
-    
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer-grid {
@@ -848,7 +850,9 @@ body {
         text-align: center;
         flex-direction: column;
         gap: 5px;
+        
     }
+    
 }
 /* --- RESPONSIVE DESIGN --- */
 
@@ -872,9 +876,7 @@ body {
         gap: 30px;
     }
 
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+   
 }
 
 /* Mobile Devices (Under 768px) */
@@ -931,19 +933,7 @@ body {
         padding: 30px;
     }
 
-    .footer-grid {
-        grid-template-columns: repeat(2,1fr);
-        
-    }
-
-    .contact-item {
-        justify-content: center;
-    }
-
-    .bottom-flex {
-        flex-direction: column;
-        gap: 15px;
-    }
+    
 }
 
 /* Very Small Screens (Under 480px) */
@@ -960,8 +950,5 @@ body {
         width: 100%;
         text-align: center;
     }
-    .footer-grid {
-        grid-template-columns: 1fr;
-        
-    }
+  
 }
