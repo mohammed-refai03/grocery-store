@@ -8,28 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="login.css">
+    <style>
+        /* In case forgot password error text doesn't have styling in your CSS */
+        .forgot-error-msg {
+            color: #ff4d4f;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
 
     <div class="bg-orb orb-1"></div>
     <div class="bg-orb orb-2"></div>
 
-    <div id="forgotModal" class="modal">
-        <div class="modal-content">
-            <h3>Reset Password</h3>
-            <p>Enter your registered email to receive a password reset link.</p>
-            
-            <div class="input-wrapper">
-                <input type="email" id="forgotEmail" placeholder="e.g. hello@freshmart.com">
-            </div>
-
-            <div class="modal-btns">
-                <button type="button" class="main-btn" id="sendReset"><a href="index.html">Send Reset Link</a></button>
-                <button type="button" class="main-btn cancel-btn" id="closeModal">Cancel</button>
-            </div>
-        </div>
-    </div>
-
+    
     <div class="auth-container">
         <a href="index.html" class="back-home">
             <i class="fas fa-arrow-left"></i> Back to Stackly
@@ -44,7 +37,8 @@
                 <div class="input-wrapper">
                     <input type="text" id="loginName" placeholder="Enter your full name" required>
                 </div>
-                <small class="error-msg">Full name is required</small>
+                <!-- Using error-msg class -->
+                <small class="error-msg" style="display: none; color: #ff4d4f;">Full name is required</small>
             </div>
 
             <div class="input-group">
@@ -52,7 +46,7 @@
                 <div class="input-wrapper">
                     <input type="email" id="loginEmail" placeholder="Enter your work email" required>
                 </div>
-                <small class="error-msg">Please enter a valid email</small>
+                <small class="error-msg" style="display: none; color: #ff4d4f;">Please enter a valid email</small>
             </div>
 
             <div class="input-group">
@@ -61,15 +55,16 @@
                     <input type="password" id="loginPass" placeholder="Enter your secure password" required>
                     <i class="fas fa-eye toggle-password"></i>
                 </div>
-                <small class="error-msg">Password is required</small>
+                <small class="error-msg" style="display: none; color: #ff4d4f;">Password is required</small>
             </div>
 
             <div class="secondary-link">
-                <a href="#" class="auth-link" id="forgotTrigger">Forgot Password?</a>
+                <a href="errorPage.html" class="auth-link" >Forgot Password?</a>
             </div>
 
-            <button type="submit" class="main-btn">
-                <a href="index.html">Secure Login <i class="fas fa-sign-in-alt"></i></a>
+            <!-- Removed anchor tag inside button -->
+            <button type="submit" class="main-btn" id="loginBtn">
+                Secure Login <i class="fas fa-sign-in-alt"></i>
             </button>
         </form>
 
@@ -80,126 +75,127 @@
     </div>
 
     <script>
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
 
-    const modal = document.getElementById('forgotModal');
-    const form = document.getElementById('loginForm');
+        const modal = document.getElementById('forgotModal');
+        const form = document.getElementById('loginForm');
 
-    const loginLink = document.querySelector('.main-btn a');
-
-    // Prevent direct navigation
-    loginLink.addEventListener('click', (e) => {
-        e.preventDefault();
-    });
-
-    // Password Visibility Toggle
-    document.querySelectorAll('.toggle-password').forEach(icon => {
-        icon.addEventListener('click', function() {
-            const input = this.parentElement.querySelector('input');
-            const isPassword = input.type === 'password';
-            input.type = isPassword ? 'text' : 'password';
-            this.classList.toggle('fa-eye');
-            this.classList.toggle('fa-eye-slash');
+        // Password Visibility Toggle
+        document.querySelectorAll('.toggle-password').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('input');
+                const isPassword = input.type === 'password';
+                input.type = isPassword ? 'text' : 'password';
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
         });
-    });
 
-    // Real-time error clearing
-    document.querySelectorAll('.input-wrapper input').forEach(input => {
-        input.addEventListener('input', function() {
-            this.parentElement.classList.remove('invalid');
+        // Real-time error clearing
+        document.querySelectorAll('.input-wrapper input').forEach(input => {
+            input.addEventListener('input', function() {
+                this.parentElement.classList.remove('invalid');
+                const errorMsg = this.closest('.input-group').querySelector('.error-msg');
+                if(errorMsg) errorMsg.style.display = 'none';
+            });
         });
-    });
 
-    // Validation helpers
-    const setError = (input) => input.parentElement.classList.add('invalid');
-    const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        // Validation helpers
+        const setError = (input) => {
+            input.parentElement.classList.add('invalid');
+            const errorMsg = input.closest('.input-group').querySelector('.error-msg');
+            if(errorMsg) errorMsg.style.display = 'block';
+        };
+        const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        e.preventDefault();
+            let isValid = true;
 
-        let isValid = true;
+            const name = document.getElementById('loginName');
+            const email = document.getElementById('loginEmail');
+            const pass = document.getElementById('loginPass');
 
-        const name = document.getElementById('loginName');
-        const email = document.getElementById('loginEmail');
-        const pass = document.getElementById('loginPass');
+            if (!name.value.trim()) {
+                setError(name);
+                isValid = false;
+            }
 
-        if (!name.value.trim()) {
-            setError(name);
-            isValid = false;
-        }
+            if (!validateEmail(email.value)) {
+                setError(email);
+                isValid = false;
+            }
 
-        if (!validateEmail(email.value)) {
-            setError(email);
-            isValid = false;
-        }
+            if (pass.value.length < 1) {
+                setError(pass);
+                isValid = false;
+            }
 
-        if (pass.value.length < 1) {
-            setError(pass);
-            isValid = false;
-        }
+            // Redirect only if valid
+            if (isValid) {
+                alert("Login successful!");
+                window.location.href = "index.html"; // JS through redirect
+            }
+        });
 
-        // Redirect only if valid
-        if (isValid) {
-            window.location.href = "index.html";
-        }
+        // Forgot password modal
+        document.getElementById('forgotTrigger').addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = "flex";
+        });
 
-    });
+        document.getElementById('closeModal').addEventListener('click', () => {
+            modal.style.display = "none";
+        });
 
-    // Forgot password modal
-    document.getElementById('forgotTrigger').addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.style.display = "flex";
-    });
+        // Forgot Password Validation
+        const resetBtn = document.getElementById('sendReset');
+        const forgotEmail = document.getElementById('forgotEmail');
 
-    document.getElementById('closeModal').addEventListener('click', () => {
-        modal.style.display = "none";
-    });
-    // Forgot Password Validation
-const resetBtn = document.getElementById('sendReset');
-const forgotEmail = document.getElementById('forgotEmail');
-
-// create error element
-const forgotError = document.createElement("small");
-forgotError.classList.add("forgot-error-msg");
-forgotError.style.display = "none";
-forgotError.innerText = "Please enter a valid email address";
-
-// append error under input
-forgotEmail.parentElement.appendChild(forgotError);
-
-// validate when clicking reset
-resetBtn.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    const emailValue = forgotEmail.value.trim();
-
-    if(emailValue === ""){
-        forgotError.innerText = "Email field cannot be empty";
-        forgotError.style.display = "block";
-        return;
-    }
-
-    if(!validateEmail(emailValue)){
+        // create error element
+        const forgotError = document.createElement("small");
+        forgotError.classList.add("forgot-error-msg");
+        forgotError.style.display = "none";
         forgotError.innerText = "Please enter a valid email address";
-        forgotError.style.display = "block";
-        return;
-    }
 
-    // hide error if valid
-    forgotError.style.display = "none";
+        // append error under input
+        forgotEmail.parentElement.appendChild(forgotError);
 
-    // redirect if valid
-    window.location.href = "index.html";
-});
+        // validate when clicking reset
+        resetBtn.addEventListener("click", function(e){
+            e.preventDefault();
 
-// remove error while typing
-forgotEmail.addEventListener("input", () => {
-    forgotError.style.display = "none";
-});
+            const emailValue = forgotEmail.value.trim();
 
-});
-</script>
+            // Correct validation logic
+            if(emailValue === ""){
+                forgotError.innerText = "Email field cannot be empty";
+                forgotError.style.display = "block";
+                return;
+            }
+
+            if(!validateEmail(emailValue)){
+                forgotError.innerText = "Please enter a valid email address";
+                forgotError.style.display = "block";
+                return;
+            }
+
+            // hide error if valid
+            forgotError.style.display = "none";
+
+            // Show success message and redirect
+            alert("A password reset link has been sent to " + emailValue);
+            modal.style.display = "none"; 
+            window.location.href = "index.html"; // Redirect to index
+        });
+
+        // remove error while typing
+        forgotEmail.addEventListener("input", () => {
+            forgotError.style.display = "none";
+        });
+
+    });
+    </script>
 </body>
 </html>
