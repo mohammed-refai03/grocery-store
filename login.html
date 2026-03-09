@@ -80,56 +80,126 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('forgotModal');
-            const form = document.getElementById('loginForm');
-            
-            // 1. Password Visibility Toggle
-            document.querySelectorAll('.toggle-password').forEach(icon => {
-                icon.addEventListener('click', function() {
-                    const input = this.parentElement.querySelector('input');
-                    const isPassword = input.type === 'password';
-                    input.type = isPassword ? 'text' : 'password';
-                    this.classList.toggle('fa-eye');
-                    this.classList.toggle('fa-eye-slash');
-                });
-            });
+document.addEventListener('DOMContentLoaded', () => {
 
-            // 2. Real-time Error Clearing
-            document.querySelectorAll('.input-wrapper input').forEach(input => {
-                input.addEventListener('input', function() {
-                    this.parentElement.classList.remove('invalid');
-                });
-            });
+    const modal = document.getElementById('forgotModal');
+    const form = document.getElementById('loginForm');
 
-            // 3. Validation
-            const setError = (input) => input.parentElement.classList.add('invalid');
-            const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const loginLink = document.querySelector('.main-btn a');
 
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                let isValid = true;
-                
-                const name = document.getElementById('loginName');
-                const email = document.getElementById('loginEmail');
-                const pass = document.getElementById('loginPass');
+    // Prevent direct navigation
+    loginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+    });
 
-                if (!name.value.trim()) { setError(name); isValid = false; }
-                if (!validateEmail(email.value)) { setError(email); isValid = false; }
-                if (pass.value.length < 1) { setError(pass); isValid = false; }
+    // Password Visibility Toggle
+    document.querySelectorAll('.toggle-password').forEach(icon => {
+        icon.addEventListener('click', function() {
+            const input = this.parentElement.querySelector('input');
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+    });
+
+    // Real-time error clearing
+    document.querySelectorAll('.input-wrapper input').forEach(input => {
+        input.addEventListener('input', function() {
+            this.parentElement.classList.remove('invalid');
+        });
+    });
+
+    // Validation helpers
+    const setError = (input) => input.parentElement.classList.add('invalid');
+    const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    form.addEventListener('submit', (e) => {
+
+        e.preventDefault();
+
+        let isValid = true;
+
+        const name = document.getElementById('loginName');
+        const email = document.getElementById('loginEmail');
+        const pass = document.getElementById('loginPass');
+
+        if (!name.value.trim()) {
+            setError(name);
+            isValid = false;
+        }
+
+        if (!validateEmail(email.value)) {
+            setError(email);
+            isValid = false;
+        }
+
+        if (pass.value.length < 1) {
+            setError(pass);
+            isValid = false;
+        }
+
+        // Redirect only if valid
+        if (isValid) {
+            window.location.href = "index.html";
+        }
+
+    });
+
+    // Forgot password modal
+    document.getElementById('forgotTrigger').addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.style.display = "flex";
+    });
+
+    document.getElementById('closeModal').addEventListener('click', () => {
+        modal.style.display = "none";
+    });
+    // Forgot Password Validation
+const resetBtn = document.getElementById('sendReset');
+const forgotEmail = document.getElementById('forgotEmail');
+
+// create error element
+const forgotError = document.createElement("small");
+forgotError.classList.add("forgot-error-msg");
+forgotError.style.display = "none";
+forgotError.innerText = "Please enter a valid email address";
+
+// append error under input
+forgotEmail.parentElement.appendChild(forgotError);
+
+// validate when clicking reset
+resetBtn.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    const emailValue = forgotEmail.value.trim();
+
+    if(emailValue === ""){
+        forgotError.innerText = "Email field cannot be empty";
+        forgotError.style.display = "block";
+        return;
+    }
+
+    if(!validateEmail(emailValue)){
+        forgotError.innerText = "Please enter a valid email address";
+        forgotError.style.display = "block";
+        return;
+    }
+
+    // hide error if valid
+    forgotError.style.display = "none";
+
+    // redirect if valid
+    window.location.href = "index.html";
 });
 
-            // 4. Modal Handlers
-            document.getElementById('forgotTrigger').addEventListener('click', (e) => {
-                e.preventDefault();
-                modal.style.display = "flex";
-            });
+// remove error while typing
+forgotEmail.addEventListener("input", () => {
+    forgotError.style.display = "none";
+});
 
-            document.getElementById('closeModal').addEventListener('click', () => {
-                modal.style.display = "none";
-            });
-
-        });
-    </script>
+});
+</script>
 </body>
 </html>
