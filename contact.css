@@ -285,6 +285,7 @@ a{
     background-size: cover;
     background-position: center; color: var(--white);
     text-align: center;
+    margin-top: 80px;
 }
 
 .contact-hero h1 {
@@ -306,8 +307,10 @@ a{
 
 /* ================= CONTACT GRID & INFO ================= */
 .contact-wrapper {
-    margin-top: -60px;
+    margin-top: -40px;
     margin-bottom: 80px;
+    width: 100%;
+    
 
 }
 
@@ -315,15 +318,15 @@ a{
     display: grid;
     grid-template-columns: 1fr;
     gap: 40px;
+    padding: 20px;
+        max-width: 100%;
+    margin: 0 auto;   
 }
 
-@media (min-width: 992px) {
-    .contact-grid { grid-template-columns: 1fr 1.5fr; }
-}
 
 .info-card {
     background: var(--white);
-    padding: 25px;
+    padding: 15px;
     border-radius: 20px;
     display: flex;
     gap: 20px;
@@ -447,6 +450,14 @@ a{
     font-weight: 600;
     margin-top: 5px;
     display: block;
+}
+@media (min-width: 992px) {
+    .contact-grid { grid-template-columns: 1fr 1.5fr; }
+}
+@media (max-width: 480px) {
+    .contact-grid { grid-template-columns: 1fr;  width: 100%; padding: 15px;}
+
+    
 }
 
 /* ================= MAP SECTION ================= */

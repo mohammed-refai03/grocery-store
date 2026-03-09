@@ -293,8 +293,9 @@ body {
 /* ================= DASHBOARD WRAPPER ================= */
 .dashboard-wrapper {
     max-width: 1400px;
-    margin: 2rem auto;
+  
     padding: 80px 20px;
+   
 }
 
 /* Stats Row */
@@ -303,6 +304,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
+    margin-top: 100px;
 }
 
 .stat-box {

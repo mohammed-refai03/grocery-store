@@ -273,11 +273,12 @@ html, body {
 
         /* --- Action Bar --- */
         .action-bar {
-            max-width: 1300px; margin: 0 auto 30px;
+            max-width: 100%; margin: 20px 20px ;
             display: flex; justify-content: space-between; gap: 20px;
-            background: white; padding: 25px; border-radius: 20px;
+            background: white; padding: 15px; border-radius: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.03);
             animation: revealUp 0.6s ease;
+           
         }
 
         .search-wrapper { position: relative; flex: 1; }
@@ -549,11 +550,14 @@ html, body {
         flex-direction: column;
         gap: 5px;
     }
+     .product-grid { 
+         grid-template-columns: repeat(1,1fr); gap: 25px; 
+        }
 }
         /* --- Responsive --- */
         @media (max-width: 1024px) {
             .container { flex-direction: column; }
-            .sidebar { width: 100%; position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+            .sidebar { width: 100%; position: static; display: grid; grid-template-columns: 1fr ; gap: 20px; }
        
         }
 
@@ -562,9 +566,7 @@ html, body {
             .action-bar { flex-direction: column; }
             .product-grid { grid-template-columns: 1fr 1fr; }
             .sidebar { grid-template-columns: 1fr; }
-            .product-grid{
-grid-template-columns:1fr;
-}
+          
 
 .sidebar{
 padding:20px;
@@ -579,5 +581,7 @@ padding:12px 45px;
 }
 
         }
-
+@media (max-width:480px) {
+                .product-grid { grid-template-columns: 1fr; }
+}
     

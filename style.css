@@ -264,7 +264,7 @@ html, body {
     background-size: cover;
     background-position: center;
     /* Removed fixed attachment for mobile - it often breaks on iOS */
-    
+    margin-top: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -599,8 +599,7 @@ html, body {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
     }
-    .item-1 { grid-row: span 1; height: 300px; }
-    .item-4 { grid-column: span 2; height: 250px; }
+    
 }
 
 @media (max-width: 600px) {

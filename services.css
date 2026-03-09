@@ -274,6 +274,7 @@ span { color: var(--accent); }
     background-position: center;
     padding: 120px 0 80px;
     overflow: hidden;
+    margin-top: 80px;
     
 }
 
