@@ -12,7 +12,13 @@
             --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
             --shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
-
+[data-aos] {
+    overflow-x: hidden;
+}
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: var(--mild-bg); color: var(--text); overflow-x: hidden; width: 100%; }
         
